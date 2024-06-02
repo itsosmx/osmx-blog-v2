@@ -1,3 +1,4 @@
+import Loader from "@/components/shared/loader";
 import PostCard from "@/components/shared/post-card";
 import { getPosts } from "@/services";
 import React from "react";
@@ -5,6 +6,7 @@ import React from "react";
 export default async function Home() {
   const posts = await getPosts();
 
+  if (!posts) return <Loader fullscreen />;
   return (
     <section className="container grid grid-cols-4 p-4">
       <div className="col-span-3 flex flex-col gap-4">

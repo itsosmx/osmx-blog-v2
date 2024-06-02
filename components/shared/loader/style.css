@@ -5,13 +5,25 @@
   height: 67.2px;
   border-radius: 50%;
   background:
-    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #474bff 80%) center
-      left,
-    radial-gradient(var(--r1) var(--r2) at bottom, #474bff 79.5%, #0000 80%)
+    radial-gradient(
+        var(--r1) var(--r2) at top,
+        hsl(var(--muted)) 79.5%,
+        hsl(var(--primary)) 80%
+      )
+      center left,
+    radial-gradient(
+        var(--r1) var(--r2) at bottom,
+        hsl(var(--primary)) 79.5%,
+        hsl(var(--muted)) 80%
+      )
       center center,
-    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #474bff 80%) center
-      right,
-    #dbdcef;
+    radial-gradient(
+        var(--r1) var(--r2) at top,
+        hsl(var(--muted)) 79.5%,
+        hsl(var(--primary)) 80%
+      )
+      center right,
+    hsl(var(--foreground));
   background-size: 50.5% 220%;
   background-position:
     -100% 0%,

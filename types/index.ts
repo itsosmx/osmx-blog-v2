@@ -19,6 +19,11 @@ export interface IPostProps {
     name: string;
     slug: string;
   }
+  content: {
+    html: string;
+    text: string;
+    markdown: string;
+  }
 }
 
 

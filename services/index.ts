@@ -4,7 +4,7 @@ import { request, gql } from 'graphql-request';
 
 const API_ENDPOINT = process.env.API_ENDPOINT
 
-export const getPosts = async function () {
+export const getPosts = async function (): Promise<IPostProps[]> {
   const query = gql`
     query MyQuery {
       postsConnection(orderBy: createdAt_DESC) {
@@ -41,7 +41,7 @@ export const getPosts = async function () {
 }
 
 
-export const getCategories = async function () {
+export const getCategories = async function (): Promise<ICategoryProps[]> {
   const query = gql`
     query getCategories {
       categories {
@@ -58,40 +58,41 @@ export const getCategories = async function () {
 }
 
 
-// export const getPostDetails = async function (slug) {
-//   const query = gql`
-//     query getPostDetails($slug: String!) {
-//       post(where: {slug: $slug}) {
-//         createdAt
-//         title
-//         slug
-//         excerpt
-//         arabic
-//         author {
-//           name
-//           photo {
-//             url
-//           }
-//           bio
-//           id
-//         }
-//         content {
-//           html
-//           text
-//         }
-//         categories {
-//           name
-//           slug
-//         }
-//         image {
-//           url
-//         }
-//       }
-//     }
-//   `
-//   const result = await request(API_ENDPOINT, query, { slug });
-//   return result.post;
-// }
+export const getPost = async function (slug: string): Promise<IPostProps> {
+  const query = gql`
+    query getPostDetails($slug: String!) {
+      post(where: {slug: $slug}) {
+        createdAt
+        title
+        slug
+        excerpt
+        arabic
+        author {
+          name
+          photo {
+            url
+          }
+          bio
+          id
+        }
+        content {
+          html
+          text
+          markdown
+        }
+        categories {
+          name
+          slug
+        }
+        image {
+          url
+        }
+      }
+    }
+  `
+  const result = await request(API_ENDPOINT as string, query, { slug }) as any;
+  return result.post as IPostProps;
+}
 
 
 // export const getSimilarPosts = async function (slug, categories) {

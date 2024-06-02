@@ -19,6 +19,10 @@ const config = {
       },
     },
     extend: {
+      height: {
+        "screen-2": "calc(100dvh - 16rem)",
+        "header": "16rem"
+      },
       container: {
         screens: {
           "2xl": "1024px",
@@ -82,7 +86,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography')],
 } satisfies Config
 
 export default config
