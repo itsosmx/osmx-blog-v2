@@ -13,7 +13,7 @@ interface PostCardProps extends React.HTMLAttributes<HTMLDivElement> {
 export default function PostCard({ data, ...props }: PostCardProps) {
   return (
     <div
-      className="grid grid-rows-5 gap-4 rounded-xl border-2 border-secondary p-4"
+      className="grid grid-rows-5 gap-4 rounded-xl border-2 border-secondary p-4 max-h-80"
       {...props}
     >
       <div className="row-span-1 flex items-center gap-2">
@@ -28,12 +28,12 @@ export default function PostCard({ data, ...props }: PostCardProps) {
           </p>
         </div>
       </div>
-      <div className="row-span-3 grid grid-cols-4 gap-4 md:flex-row-reverse">
+      <div className="row-span-3 grid grid-cols-5 gap-4 md:flex-row-reverse">
         <div className="col-span-3">
-          <h3 className="text-xl font-bold">{data.title}</h3>
-          <p>{data.excerpt}</p>
+          <h3 className="text-xl font-bold ">{data.title}</h3>
+          <p className="line-clamp-3">{data.excerpt}</p>
         </div>
-        <div className="relative col-span-1">
+        <div className="relative col-span-2">
           <Image
             src={data.image.url}
             alt={data.title}

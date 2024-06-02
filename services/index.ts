@@ -7,7 +7,7 @@ const API_ENDPOINT = process.env.API_ENDPOINT
 export const getPosts = async function () {
   const query = gql`
     query MyQuery {
-      postsConnection(orderBy: createdAt_ASC) {
+      postsConnection(orderBy: createdAt_DESC) {
         edges {
           node {
             author {

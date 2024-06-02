@@ -19,6 +19,13 @@ const config = {
       },
     },
     extend: {
+      container: {
+        screens: {
+          "2xl": "1024px",
+          "xl": "768px",
+          "lg": "640px",
+        },
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
