@@ -6,14 +6,15 @@ import { Button, buttonVariants } from "../ui/button";
 import Link from "next/link";
 import { IPostProps } from "@/types";
 
-interface PostCardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface PostCardProps extends React.HTMLAttributes<HTMLAnchorElement> {
   data: IPostProps;
 }
 
 export default function PostCard({ data, ...props }: PostCardProps) {
   return (
-    <div
-      className="grid grid-rows-5 gap-4 rounded-xl border-2 border-secondary p-4 max-h-80"
+    <Link
+      href={`/posts/${data.slug}`}
+      className="grid max-h-80 grid-rows-4 gap-4 rounded-xl border-2 border-secondary p-4"
       {...props}
     >
       <div className="row-span-1 flex items-center gap-2">
@@ -29,9 +30,36 @@ export default function PostCard({ data, ...props }: PostCardProps) {
         </div>
       </div>
       <div className="row-span-3 grid grid-cols-5 gap-4 md:flex-row-reverse">
-        <div className="col-span-3">
-          <h3 className="text-xl font-bold ">{data.title}</h3>
-          <p className="line-clamp-3">{data.excerpt}</p>
+        <div className="col-span-3 grid">
+          <div>
+            <h3 title={data.title} className="line-clamp-2 text-xl font-bold">
+              {data.title}
+            </h3>
+            <p title={data.excerpt} className="line-clamp-3">
+              {data.excerpt}
+            </p>
+          </div>
+          <div>
+            <Link
+              href=":id#comments"
+              className={buttonVariants({ variant: "transparent" })}
+            >
+              <CiChat1 className="text-xl" />
+              <span className="ml-2">Comment</span>
+            </Link>
+            <Button variant="transparent">
+              <CiShare2 className="text-xl" />
+              <span className="ml-2">Share</span>
+            </Button>
+            <div className={buttonVariants({ variant: "transparent" })}>
+              <CiHeart className="text-xl" />
+              <span className="ml-2">10</span>
+            </div>
+            <div className={buttonVariants({ variant: "transparent" })}>
+              <CiRead className="text-xl" />
+              <span className="ml-2">10</span>
+            </div>
+          </div>
         </div>
         <div className="relative col-span-2">
           <Image
@@ -42,27 +70,6 @@ export default function PostCard({ data, ...props }: PostCardProps) {
           />
         </div>
       </div>
-      <div className="row-span-1">
-        <Link
-          href=":id#comments"
-          className={buttonVariants({ variant: "transparent" })}
-        >
-          <CiChat1 className="text-xl" />
-          <span className="ml-2">Comment</span>
-        </Link>
-        <Button variant="transparent">
-          <CiShare2 className="text-xl" />
-          <span className="ml-2">Share</span>
-        </Button>
-        <div className={buttonVariants({ variant: "transparent" })}>
-          <CiHeart className="text-xl" />
-          <span className="ml-2">10</span>
-        </div>
-        <div className={buttonVariants({ variant: "transparent" })}>
-          <CiRead className="text-xl" />
-          <span className="ml-2">10</span>
-        </div>
-      </div>
-    </div>
+    </Link>
   );
 }
