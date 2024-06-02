@@ -22,7 +22,7 @@ You can fork this repo to modify and make changes of your own. Please give me pr
 
 - Clone down this repository
 - Create a `.env` file in the root directory
-- Add `API_ENDPOINT` you can get the endpoint from [Hygraph][auth.hygraph.com](https://hygraph.com/)
+- Add `API_ENDPOINT` you can get the endpoint from Hygraph [auth.hygraph.com](https://hygraph.com/)
 - And `NEXT_PUBLIC_BASE_URL` change to your domain url
 - Should be link this 
 ```bash
