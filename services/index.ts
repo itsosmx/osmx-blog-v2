@@ -1,5 +1,5 @@
 "use server";
-import { IPostProps } from '@/types';
+import { ICategoryProps, IPostProps } from '@/types';
 import { request, gql } from 'graphql-request';
 
 const API_ENDPOINT = process.env.API_ENDPOINT
@@ -41,21 +41,21 @@ export const getPosts = async function () {
 }
 
 
-// export const getCategories = async function () {
-//   const query = gql`
-//     query getCategories {
-//       categories {
-//         name
-//         slug
-//         posts {
-//           slug
-//         }
-//       }
-//     }
-//   `
-//   const result = await request(API_ENDPOINT, query);
-//   return result.categories
-// }
+export const getCategories = async function () {
+  const query = gql`
+    query getCategories {
+      categories {
+        name
+        slug
+        posts {
+          slug
+        }
+      }
+    }
+  `
+  const result = await request(API_ENDPOINT as string, query) as any;
+  return result.categories as ICategoryProps[];
+}
 
 
 // export const getPostDetails = async function (slug) {

@@ -20,3 +20,12 @@ export interface IPostProps {
     slug: string;
   }
 }
+
+
+export interface ICategoryProps {
+  name: string;
+  slug: string;
+  posts: {
+    slug: string;
+  }[]
+}
