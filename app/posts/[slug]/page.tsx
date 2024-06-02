@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getPost } from "@/services";
 import Image from "next/image";
 import React from "react";
+import { reading_time } from "@/lib/utils";
 
 export default async function PostID({
   params: { slug },
@@ -34,6 +35,9 @@ export default async function PostID({
         </div>
         <p className="text-xl text-gray-500">
           {new Date(post.createdAt).toDateString()}
+        </p>
+        <p>
+        {reading_time(post.content.text)}
         </p>
       </div>
       <MarkdownPreview source={post?.content.markdown as any} />
