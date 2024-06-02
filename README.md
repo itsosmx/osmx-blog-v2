@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h2 align="center">
+  OSMX Blog - v2.0<br/>
+  <a href="https://blog.osmx.me/" target="_blank">blog.osmx.me</a>
+</h2>
 
-## Getting Started
 
-First, run the development server:
+## TL;DR
+You can fork this repo to modify and make changes of your own. Please give me proper credit by linking back to [osmx.me](https://osmx.me/) Thanks!
 
+## Built With
+- Next.js
+- Tailwind CSS
+- Framer Motion
+- GraphQL
+- ShadCN UI
+- Hygraph
+- Hosted on `Vercel`.
+- Coded With `VS Code`.
+
+
+# Getting Started
+
+- Clone down this repository
+- Create a `.env` file in the root directory
+- Add `API_ENDPOINT` you can get the endpoint from [Hygraph][auth.hygraph.com](https://hygraph.com/)
+- And `NEXT_PUBLIC_BASE_URL` change to your domain url
+- Should be link this 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+API_ENDPOINT=...
+NEXT_PUBLIC_BASE_URL=...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Run `npm install` 
+- Run the project `npm run dev`
